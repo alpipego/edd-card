@@ -1,10 +1,12 @@
 (function ($) {
-    var year_selector = '#card_exp_year',
-        month_selector = '#card_exp_month',
-        year = ('' + $(year_selector).val()).substr(2, 2),
-        month = ('00' + $(month_selector).val()).substr(-2, 2),
+    var yearSelector = '#card_exp_year',
+        monthSelector = '#card_exp_month',
+        nameSelector = '#card_name',
+        year = ('' + $(yearSelector).val()).substr(2, 2),
+        month = ('00' + $(monthSelector).val()).substr(-2, 2),
         $cardContainer = $('#card-wrapper'),
-        $cardSelector = $('.edd-card-selector-radio');
+        $cardSelector = $('.edd-card-selector-radio'),
+        config = window.eddcard;
 
     $.when(
         $('#edd_cc_fields')
@@ -12,31 +14,43 @@
             //     .hide()
             .card({
                 container: '#card-wrapper',
-                debug: true,
+                debug: !!config.debug,
                 formatting: true,
 
                 formSelectors: {
-                    nameInput: '#card_name',
+                    nameInput: nameSelector,
                     numberInput: '#card_number',
                     cvcInput: '#card_cvc',
-                    expiryInput: month_selector + ',' + year_selector
+                    expiryInput: monthSelector + ',' + yearSelector
+                },
+
+                messages: {
+                    validDate: config.validDate,
+                    monthYear: config.monthYear
                 }
             })
     ).then(function () {
         var $expiry = $('.jp-card-expiry');
 
         $(document)
-            .on('change', month_selector + ',' + year_selector, function () {
-                updateExpiry();
-            })
-            .on('focus', month_selector + ',' + year_selector, function () {
-                $expiry.addClass('jp-card-focused');
-            })
-            .on('blur', month_selector + ',' + year_selector, function () {
-                $expiry.removeClass('jp-card-focused');
-            })
             .ready(function () {
                 updateExpiry();
+            })
+            .on('change', monthSelector + ',' + yearSelector, function () {
+                updateExpiry();
+            })
+            .on('focus', monthSelector + ',' + yearSelector, function () {
+                $expiry.addClass('jp-card-focused');
+            })
+            .on('blur', monthSelector + ',' + yearSelector, function () {
+                $expiry.removeClass('jp-card-focused');
+            })
+            .on('paste', function (e) {
+                if ('#' + e.target === nameSelector) {
+                    setTimeout(function () {
+                        $(nameSelector).blur().focus();
+                    });
+                }
             });
 
         if ($cardSelector.length) {
@@ -51,8 +65,8 @@
         }
 
         function updateExpiry() {
-            month = ('00' + $(month_selector).val()).substr(-2, 2);
-            year = ('' + $(year_selector).val()).substr(2, 2);
+            month = ('00' + $(monthSelector).val()).substr(-2, 2);
+            year = ('' + $(yearSelector).val()).substr(2, 2);
             $expiry.text(month + '/' + year);
         }
     });

@@ -1773,3 +1773,4 @@ var card = function(modules) {
 }, function(module, exports) {
     module.exports = jQuery;
 } ]);
+//# sourceMappingURL=jquery.card.js.map
