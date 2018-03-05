@@ -2,7 +2,7 @@
 /**
  * Plugin Name: EDD Card
  * Plugin URI: https://github.com/alpipego/edd-card
- * Description: Adaption of @jessepolak's Card for Easy Digital Downloads
+ * Description: Adaption of @jessepollak's Card for Easy Digital Downloads
  * Author: Alexander Goller
  * Author URI: https://alexandergoller.com
  * Text Domain: edd-card
