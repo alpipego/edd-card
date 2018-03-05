@@ -1,17 +1,18 @@
 <?php
 /**
- * Plugin Name:     EDD Card
- * Plugin URI:      https://github.com/alpipego/edd-card
- * Description:     Adaption of @jessepolak's Card for Easy Digital Downloads
- * Author:          Alexander Goller
- * Author URI:      https://alexandergoller.com
- * Text Domain:     edd-card
- * Domain Path:     /languages
- * Version:         1.0.0
- * Tested up to:    4.9
- * Requires PHP:    5.4
- * License:         MIT
- * License URI:     https://opensource.org/licenses/MIT
+ * Plugin Name: EDD Card
+ * Plugin URI: https://github.com/alpipego/edd-card
+ * Description: Adaption of @jessepolak's Card for Easy Digital Downloads
+ * Author: Alexander Goller
+ * Author URI: https://alexandergoller.com
+ * Text Domain: edd-card
+ * Domain Path: /languages
+ * Version: 1.0.0
+ * Tested up to: 4.9
+ * Requires at least: 3.1.0
+ * Requires PHP: 5.4
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  */
 
 namespace Alpipego\EddCard;
@@ -52,7 +53,7 @@ if ( (bool) apply_filters( 'edd/card/css', true ) ) {
 		if ( $cardPosition === 'left' ) {
 			$style = preg_replace( '%/\*\* position \*/%', 'margin-left: 0!important', $style );
 		} elseif ( $cardPosition === 'right' ) {
-			$style = preg_replace( '%/\*\* position \*/%', 'margin-left: 0!important', $style );
+			$style = preg_replace( '%/\*\* position \*/%', 'margin-right: 0!important', $style );
 		}
 		printf( '<style>%s</style>', preg_replace( '/[\h\s]+/', ' ', $style ) );
 	} );
@@ -67,4 +68,3 @@ function is_cart() {
 
 	return edd_get_checkout_uri() === trailingslashit( home_url( $wp->request ) );
 }
-
