@@ -74,6 +74,13 @@ module.exports = function (grunt) {
                     'js/edd-card.min.js': ['node_modules/card/dist/jquery.card.js', 'js/edd-card.js']
                 }
             }
+        },
+
+        watch: {
+            js: {
+                files: 'js/edd-card.dev.js',
+                tasks: 'uglify'
+            }
         }
     });
 
