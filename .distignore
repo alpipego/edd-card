@@ -21,6 +21,7 @@ multisite.xml.dist
 phpcs.xml
 phpcs.xml.dist
 README.md
+VERSION
 wp-cli.local.yml
 yarn.lock
 tests
