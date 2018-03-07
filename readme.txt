@@ -26,7 +26,9 @@ Check out Jesse's [Demo](https://jessepollak.github.io/card/).
 
 You have access to the following filter:
 
-`apply_filters( 'edd/card/position', 'center' );`
+```
+apply_filters( 'edd/card/position', 'center' );
+```
 
 It takes a string `center`, `left`, `right`, that determines the position of the card in its container.
 
@@ -39,5 +41,5 @@ It takes a string `center`, `left`, `right`, that determines the position of the
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.2 =
 * Minor readme update
