@@ -7,7 +7,7 @@
  * Author URI: https://alexandergoller.com
  * Text Domain: edd-card
  * Domain Path: /languages
- * Version: 1.0.1
+ * Version: 1.0.2
  * Tested up to: 4.9
  * Requires at least: 3.1.0
  * Requires PHP: 5.4
