@@ -4,7 +4,7 @@
 **Donate Link:** https://www.paypal.me/alpipego/5  
 **Requires at least:** 3.1.0  
 **Tested up to:** 4.9  
-**Stable tag:** 1.0.2  
+**Stable tag:** 1.0.3  
 **Requires PHP:** 5.4  
 **License:** MIT  
 **License URI:** https://opensource.org/licenses/MIT  
@@ -26,11 +26,11 @@ Check out Jesse's [Demo](https://jessepollak.github.io/card/).
 
 You have access to the following filter:
 
-```
-apply_filters( 'edd/card/position', 'center' );
-```
 
-It takes a string `center`, `left`, `right`, that determines the position of the card in its container.
+	apply_filters( 'edd/card/position', 'center' );
+
+
+It takes a string (`center`, `left`, or `right`), that determines the position of the card in its container.
 
 ## Frequently Asked Questions ##
 
@@ -41,5 +41,8 @@ It takes a string `center`, `left`, `right`, that determines the position of the
 
 ## Changelog ##
 
-### 1.0.1 ###
+### 1.0.3 ###
+* deregister script `jQuery.payment`, EDD mishandles this and requeues the script under some conditions
+
+### 1.0.2 ###
 * Minor readme update
