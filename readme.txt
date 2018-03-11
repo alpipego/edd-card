@@ -26,11 +26,11 @@ Check out Jesse's [Demo](https://jessepollak.github.io/card/).
 
 You have access to the following filter:
 
-```
+`
 apply_filters( 'edd/card/position', 'center' );
-```
+`
 
-It takes a string `center`, `left`, `right`, that determines the position of the card in its container.
+It takes a string (`center`, `left`, or `right`), that determines the position of the card in its container.
 
 == Frequently Asked Questions ==
 
@@ -40,6 +40,9 @@ It takes a string `center`, `left`, `right`, that determines the position of the
 2. There are a lot of different types of cards included
 
 == Changelog ==
+
+= 1.0.3 =
+* deregister script `jQuery.payment`, EDD mishandles this and requeues the script under some conditions
 
 = 1.0.2 =
 * Minor readme update
