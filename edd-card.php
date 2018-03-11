@@ -42,9 +42,11 @@ add_action( 'wp_enqueue_scripts', function () {
 	}
 } );
 
-add_action( 'wp_enqueue_scripts', function () {
-	wp_dequeue_script( 'jQuery.payment' );
-}, 101 );
+add_action('wp_enqueue_scripts', function () {
+	wp_dequeue_script('jQuery.payment');
+	// hack for now, maybe EDD will correctly use the queue in the future
+	wp_deregister_script('jQuery.payment');
+}, 9999);
 
 if ( (bool) apply_filters( 'edd/card/css', true ) ) {
 	add_action( 'wp_head', function () {
